@@ -68,19 +68,19 @@ class BFSUsingSimpleGraph {
             // Get first element from queue
             int node = queue.remove(0);
 
-            // If element is visited, then don't proceed. Pick the next element from queue.
-            if (visited[node]) continue;
+            // If node is not visited
+            if (!visited[node]) {
+                // visit node and mark as visited
+                System.out.println("Visiting node " + node);
+                visited[node] = true;
 
-            // process if not already visited and mark as visited
-            System.out.println("Visiting node " + node);
-            visited[node] = true;
-
-            // Find all unvisited neighbors of node and add them to the queue
-            List<Integer> unvisitedNeighbors = adjList.get(node)
-                    .stream()
-                    .filter(v -> visited[v] == false)
-                    .collect(Collectors.toList());
-            queue.addAll(unvisitedNeighbors);
+                // Find all unvisited neighbors of node and add them to the queue
+                List<Integer> unvisitedNeighbors = adjList.get(node)
+                        .stream()
+                        .filter(v -> visited[v] == false)
+                        .collect(Collectors.toList());
+                queue.addAll(unvisitedNeighbors);
+            }
         }
     }
 
