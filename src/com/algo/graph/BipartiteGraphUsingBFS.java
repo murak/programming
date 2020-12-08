@@ -5,7 +5,7 @@ import java.util.*;
 public class BipartiteGraphUsingBFS {
 
     public static void main(String[] args) {
-        Graph g = new Graph(6);
+        SimpleBiPartiteGraph g = new SimpleBiPartiteGraph(6);
         g.addEdge(0, 1);
         g.addEdge(0, 3);
         g.addEdge(2, 1);
@@ -23,11 +23,11 @@ public class BipartiteGraphUsingBFS {
 
 }
 
-class Graph {
+class SimpleBiPartiteGraph {
 
     private List<List<Integer>> adjList;
 
-    public Graph(final int size) {
+    public SimpleBiPartiteGraph(final int size) {
         adjList = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
             adjList.add(new ArrayList<>());
