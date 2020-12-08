@@ -66,15 +66,12 @@ class Graph {
                 if (color[u] == color[v]) {
                     return false;
                 }
-                // if vertex was already visited, then ignore and continue to next vertex
-                if (parent[v] != -1) {
-                    // Already visited
-                    continue;
+                // If the vertex was not already visited, then visit it.
+                if (parent[v] == -1) {
+                    color[v] = 1 - color[u];
+                    parent[v] = u;
+                    queue.add(v);
                 }
-                // if vertex is not visited, then visit it
-                color[v] = 1 - color[u];
-                parent[v] = u;
-                queue.add(v);
             }
         }
         return true;
